@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-ink antialiased;
+}
+
+/* ------------------------------------------------------------------ */
+/* Brand gradient — the single place the orange -> pink -> violet      */
+/* theme is defined. Every gradient element in the app reuses these    */
+/* classes, so re-theming the whole product means editing one value    */
+/* here (and the matching one in tailwind.config.js).                  */
+/* ------------------------------------------------------------------ */
+.text-gradient-brand {
+  background-image: theme('backgroundImage.brand-gradient');
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-brand {
+  background-image: theme('backgroundImage.brand-gradient');
+}
+
+.btn-primary {
+  @apply bg-gradient-brand text-white font-semibold rounded-full px-5 py-2.5 text-sm
+    shadow-card transition-transform duration-150 hover:scale-[1.03] active:scale-[0.98];
+}
+
+.btn-outline {
+  @apply border border-ink/15 text-ink font-semibold rounded-full px-5 py-2.5 text-sm
+    transition-colors duration-150 hover:bg-ink/5;
+}
+
+.btn-dark {
+  @apply w-full bg-ink text-white font-semibold rounded-xl py-2.5 text-sm
+    transition-colors duration-150 hover:bg-ink/90 disabled:bg-ink/10 disabled:text-muted
+    disabled:cursor-not-allowed;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
