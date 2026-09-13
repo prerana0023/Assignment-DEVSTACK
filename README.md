@@ -2,6 +2,8 @@
 
 Dev Stack is a React-based web application that helps developers explore, compare, and select technologies for their next project. Users can browse through frontend, backend, database, and tooling options, add them to a personal stack, and see their selected stack in real time.
 
+🌐 **Live Demo:** [https://devstack-b14-pp.netlify.app/](https://devstack-b14-pp.netlify.app/)
+
 ---
 
 ## ✨ Features
