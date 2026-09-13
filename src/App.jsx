@@ -7,43 +7,27 @@ import { ToastContainer, toast } from 'react-toastify'
 import technologiesData from '../technologies.json'
 
 // ---------------------------------------------------------------------
-// Local icon assets (src/picture) — imported once and looked up by the
-// filename stored against each technology in technologies.json.
+// Icons are served from the /public folder.
+// In Vite, anything inside /public is copied as-is to the build output,
+// so referencing them with an absolute path (e.g. "/React.png") works
+// both in dev and in production (Netlify).
 // ---------------------------------------------------------------------
-import logo from './picture/logo-text.png'
-import banner from './picture/banner-stack.png'
-import reactIcon from './picture/React.png'
-import vueIcon from './picture/Vue.js.png'
-import svelteIcon from './picture/Svelte.png'
-import nextIcon from './picture/Next.js.png'
-import nodeIcon from './picture/Node.js.png'
-import expressIcon from './picture/Express.png'
-import djangoIcon from './picture/Django.png'
-import springIcon from './picture/Spring.png'
-import postgresIcon from './picture/PostgresSQL.png'
-import redisIcon from './picture/Redis.png'
-import javascriptIcon from './picture/JavaScript.png'
-import typescriptIcon from './picture/TypeScript.png'
-import javaIcon from './picture/Java.png'
-import tailwindIcon from './picture/Tailwind CSS.png'
-import dockerIcon from './picture/Docker.png'
-
 const ICONS = {
-  'React.png': reactIcon,
-  'Vue.js.png': vueIcon,
-  'Svelte.png': svelteIcon,
-  'Next.js.png': nextIcon,
-  'Node.js.png': nodeIcon,
-  'Express.png': expressIcon,
-  'Django.png': djangoIcon,
-  'Spring.png': springIcon,
-  'PostgresSQL.png': postgresIcon,
-  'Redis.png': redisIcon,
-  'JavaScript.png': javascriptIcon,
-  'TypeScript.png': typescriptIcon,
-  'Java.png': javaIcon,
-  'Tailwind CSS.png': tailwindIcon,
-  'Docker.png': dockerIcon,
+  'React.png': '/React.png',
+  'Vue.js.png': '/Vue.js.png',
+  'Svelte.png': '/Svelte.png',
+  'Next.js.png': '/Next.js.png',
+  'Node.js.png': '/Node.js.png',
+  'Express.png': '/Express.png',
+  'Django.png': '/Django.png',
+  'Spring.png': '/Spring.png',
+  'PostgresSQL.png': '/PostgresSQL.png',
+  'Redis.png': '/Redis.png',
+  'JavaScript.png': '/JavaScript.png',
+  'TypeScript.png': '/TypeScript.png',
+  'Java.png': '/Java.png',
+  'Tailwind CSS.png': '/Tailwind CSS.png',
+  'Docker.png': '/Docker.png',
 }
 
 const CATEGORY_STYLES = {
@@ -67,7 +51,7 @@ const NAV_LINKS = ['Home', 'Technologies', 'Projects', 'About', 'Contact']
 function BrandMark() {
   return (
     <a href="#top" className="flex items-center gap-2 shrink-0">
-      <img src={logo} alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
+      <img src="/logo-text.png" alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
       <span className="text-lg font-extrabold text-gradient-brand">Dev Stack</span>
     </a>
   )
@@ -79,8 +63,6 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-surface/90 backdrop-blur">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
-        {/* Mobile: Hamburger Icon (Left side) */}
         <button
           type="button"
           className="md:hidden -ml-2 rounded-lg p-2 text-ink hover:bg-ink/5"
@@ -99,17 +81,9 @@ function Navbar() {
           )}
         </button>
 
-        {/* Desktop: Brand (Left) */}
-        <div className="hidden md:block">
-          <BrandMark />
-        </div>
+        <div className="hidden md:block"><BrandMark /></div>
+        <div className="md:hidden"><BrandMark /></div>
 
-        {/* Mobile: Brand (Center) */}
-        <div className="md:hidden">
-          <BrandMark />
-        </div>
-
-        {/* Desktop: Nav Links (Center) */}
         <ul className="hidden items-center gap-8 text-sm font-medium text-ink/70 md:flex">
           {NAV_LINKS.map((link) => (
             <li key={link}>
@@ -120,7 +94,6 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Right: Auth Actions */}
         <div className="flex items-center gap-2 sm:gap-3">
           <a href="#signin" className="hidden text-sm font-semibold text-ink/70 hover:text-ink sm:inline">
             Sign In
@@ -131,7 +104,6 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
       {open && (
         <div className="border-t border-line bg-surface px-4 py-4 md:hidden">
           <ul className="flex flex-col gap-1 text-sm font-medium text-ink/80">
@@ -147,8 +119,8 @@ function Navbar() {
               </li>
             ))}
             <li className="pt-2 border-t border-line mt-2">
-              <a 
-                href="#signin" 
+              <a
+                href="#signin"
                 className="block rounded-lg px-3 py-2 hover:bg-ink/5"
                 onClick={() => setOpen(false)}
               >
@@ -188,7 +160,11 @@ function Hero() {
             </a>
           </div>
         </div>
-        <img src={banner} alt="Illustration of stacked technology blocks" className="mx-auto w-full max-w-sm lg:mx-0" />
+        <img
+          src="/banner-stack.png"
+          alt="Illustration of stacked technology blocks"
+          className="mx-auto w-full max-w-sm lg:mx-0"
+        />
       </div>
     </section>
   )
@@ -232,16 +208,27 @@ function TechnologyCard({ tech, isAdded, onAdd }) {
   return (
     <article className={`group flex flex-col rounded-2xl border p-5 transition-all duration-300 ${cardStyle}`}>
       <div className="flex items-start justify-between">
-        <img src={ICONS[icon]} alt="" aria-hidden="true" className="h-10 w-10 rounded-lg object-contain transition-transform duration-300 group-hover:scale-110" />
+        <img
+          src={ICONS[icon]}
+          alt=""
+          aria-hidden="true"
+          className="h-10 w-10 rounded-lg object-contain transition-transform duration-300 group-hover:scale-110"
+        />
         {badge && (
-          <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${isAdded ? 'bg-pink-100 text-pink-700' : 'bg-ink/5 text-ink/70'}`}>
+          <span
+            className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
+              isAdded ? 'bg-pink-100 text-pink-700' : 'bg-ink/5 text-ink/70'
+            }`}
+          >
             {badge}
           </span>
         )}
       </div>
 
       <h3 className={`mt-3 text-base font-bold ${isAdded ? 'text-pink-700' : 'text-ink'}`}>{name}</h3>
-      <p className={`mt-1.5 text-sm leading-relaxed line-clamp-2 ${isAdded ? 'text-pink-600/80' : 'text-muted'}`}>{description}</p>
+      <p className={`mt-1.5 text-sm leading-relaxed line-clamp-2 ${isAdded ? 'text-pink-600/80' : 'text-muted'}`}>
+        {description}
+      </p>
 
       <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
         <span className={`rounded-full px-2.5 py-1 font-semibold ${categoryClass(category)}`}>
@@ -253,13 +240,13 @@ function TechnologyCard({ tech, isAdded, onAdd }) {
         </span>
       </div>
 
-      <button 
-        type="button" 
-        onClick={() => onAdd(tech)} 
-        disabled={isAdded} 
+      <button
+        type="button"
+        onClick={() => onAdd(tech)}
+        disabled={isAdded}
         className={`mt-4 w-full rounded-xl py-2.5 text-sm font-semibold transition-colors ${
-          isAdded 
-            ? 'bg-pink-500 text-white cursor-default' 
+          isAdded
+            ? 'bg-pink-500 text-white cursor-default'
             : 'bg-gray-900 text-white hover:bg-gray-800'
         }`}
       >
@@ -290,7 +277,12 @@ function TechnologyGrid({ stackIds, onAdd }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {technologies.map((tech) => (
-        <TechnologyCard key={tech.id} tech={tech} isAdded={stackIds.has(tech.id)} onAdd={onAdd} />
+        <TechnologyCard
+          key={tech.id}
+          tech={tech}
+          isAdded={stackIds.has(tech.id)}
+          onAdd={onAdd}
+        />
       ))}
     </div>
   )
@@ -328,7 +320,12 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
           <ul className="mt-4 flex flex-col gap-2">
             {stack.map((tech) => (
               <li key={tech.id} className="flex items-center gap-3 rounded-xl border border-line px-3 py-2.5">
-                <img src={ICONS[tech.icon]} alt="" aria-hidden="true" className="h-7 w-7 shrink-0 rounded-md object-contain" />
+                <img
+                  src={ICONS[tech.icon]}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-7 w-7 shrink-0 rounded-md object-contain"
+                />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold text-ink">{tech.name}</p>
                   <span className={`mt-0.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${categoryClass(tech.category)}`}>
@@ -382,7 +379,7 @@ function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <a href="#top" className="flex items-center gap-2">
-              <img src={logo} alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
+              <img src="/logo-text.png" alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
               <span className="text-lg font-extrabold text-gradient-brand">Dev Stack</span>
             </a>
             <p className="mt-3 max-w-xs text-sm text-muted">
@@ -452,10 +449,7 @@ function ScrollToTop() {
   }, [])
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
