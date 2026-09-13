@@ -1,0 +1,152 @@
+[
+  {
+    "id": "react",
+    "name": "React",
+    "category": "Frontend",
+    "description": "A declarative, component-based JavaScript library for building modern user interfaces.",
+    "icon": "React.png",
+    "rating": 4.9,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Popular"
+  },
+  {
+    "id": "vuejs",
+    "name": "Vue.js",
+    "category": "Frontend",
+    "description": "An approachable, performant framework with a gentle learning curve and flexible tooling.",
+    "icon": "Vue.js.png",
+    "rating": 4.7,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Versatile"
+  },
+  {
+    "id": "svelte",
+    "name": "Svelte",
+    "category": "Frontend",
+    "description": "Compiles away the framework at build time, shipping small, extremely fast web apps.",
+    "icon": "Svelte.png",
+    "rating": 4.6,
+    "difficulty": "Intermediate",
+    "badge": "Fast"
+  },
+  {
+    "id": "nextjs",
+    "name": "Next.js",
+    "category": "Frontend",
+    "description": "The React framework for full-stack apps with hybrid rendering and file-based routing.",
+    "icon": "Next.js.png",
+    "rating": 4.8,
+    "difficulty": "Intermediate",
+    "badge": "Robust"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "category": "Backend",
+    "description": "An event-driven JavaScript runtime that powers scalable network applications on the server.",
+    "icon": "Node.js.png",
+    "rating": 4.8,
+    "difficulty": "Intermediate",
+    "badge": "Standard"
+  },
+  {
+    "id": "express",
+    "name": "Express",
+    "category": "Backend",
+    "description": "A minimal, unopinionated web framework for building APIs and servers on top of Node.js.",
+    "icon": "Express.png",
+    "rating": 4.5,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Minimal"
+  },
+  {
+    "id": "django",
+    "name": "Django",
+    "category": "Backend",
+    "description": "A high-level Python web framework that encourages rapid, clean, pragmatic development.",
+    "icon": "Django.png",
+    "rating": 4.6,
+    "difficulty": "Intermediate",
+    "badge": "Batteries-Included"
+  },
+  {
+    "id": "spring",
+    "name": "Spring",
+    "category": "Backend",
+    "description": "A comprehensive Java framework for building enterprise-grade backend applications.",
+    "icon": "Spring.png",
+    "rating": 4.5,
+    "difficulty": "Advanced",
+    "badge": "Enterprise"
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "category": "Database",
+    "description": "A powerful, open-source object-relational database system with proven reliability.",
+    "icon": "PostgresSQL.png",
+    "rating": 4.9,
+    "difficulty": "Intermediate",
+    "badge": "Top SQL"
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "category": "Database",
+    "description": "An in-memory data store used for high-speed caching, queues, and real-time features.",
+    "icon": "Redis.png",
+    "rating": 4.7,
+    "difficulty": "Intermediate",
+    "badge": "Cache"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "category": "Language",
+    "description": "The versatile scripting language of the web, running in every browser and on the server.",
+    "icon": "JavaScript.png",
+    "rating": 4.8,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Essential"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "category": "Language",
+    "description": "A typed superset of JavaScript that catches errors early and scales with large codebases.",
+    "icon": "TypeScript.png",
+    "rating": 4.8,
+    "difficulty": "Intermediate",
+    "badge": "Typed"
+  },
+  {
+    "id": "java",
+    "name": "Java",
+    "category": "Language",
+    "description": "A mature, object-oriented language known for portability and strong enterprise tooling.",
+    "icon": "Java.png",
+    "rating": 4.5,
+    "difficulty": "Intermediate",
+    "badge": "Robust"
+  },
+  {
+    "id": "tailwindcss",
+    "name": "Tailwind CSS",
+    "category": "Styling",
+    "description": "A utility-first CSS framework for building custom designs fast, without leaving your markup.",
+    "icon": "Tailwind CSS.png",
+    "rating": 4.9,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Modern"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "category": "DevOps",
+    "description": "A platform for packaging apps and their dependencies into portable, consistent containers.",
+    "icon": "Docker.png",
+    "rating": 4.7,
+    "difficulty": "Advanced",
+    "badge": "Containers"
+  }
+]
