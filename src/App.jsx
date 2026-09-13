@@ -1,29 +1,50 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 
+// ---------------------------------------------------------------------
+// Data: loaded from the JSON file at the project root, not hardcoded.
+// ---------------------------------------------------------------------
 import technologiesData from '../technologies.json'
 
 // ---------------------------------------------------------------------
-// Icons are served from the /public folder.
-// Vite copies everything in /public straight into the build output,
-// so absolute paths like "/React.png" work in dev AND production.
+// Local icon assets (src/picture) — imported so Vite can process them
+// and produce correct hashed URLs at build time. This works reliably on
+// Netlify (Linux), because the imports are resolved at build time.
 // ---------------------------------------------------------------------
+import logo from './picture/logo-text.png'
+import banner from './picture/banner-stack.png'
+import reactIcon from './picture/React.png'
+import vueIcon from './picture/Vue.js.png'
+import svelteIcon from './picture/Svelte.png'
+import nextIcon from './picture/Next.js.png'
+import nodeIcon from './picture/Node.js.png'
+import expressIcon from './picture/Express.png'
+import djangoIcon from './picture/Django.png'
+import springIcon from './picture/Spring.png'
+import postgresIcon from './picture/PostgresSQL.png'
+import redisIcon from './picture/Redis.png'
+import javascriptIcon from './picture/JavaScript.png'
+import typescriptIcon from './picture/TypeScript.png'
+import javaIcon from './picture/Java.png'
+import tailwindIcon from './picture/Tailwind CSS.png'
+import dockerIcon from './picture/Docker.png'
+
 const ICONS = {
-  'React.png': '/React.png',
-  'Vue.js.png': '/Vue.js.png',
-  'Svelte.png': '/Svelte.png',
-  'Next.js.png': '/Next.js.png',
-  'Node.js.png': '/Node.js.png',
-  'Express.png': '/Express.png',
-  'Django.png': '/Django.png',
-  'Spring.png': '/Spring.png',
-  'PostgresSQL.png': '/PostgresSQL.png',
-  'Redis.png': '/Redis.png',
-  'JavaScript.png': '/JavaScript.png',
-  'TypeScript.png': '/TypeScript.png',
-  'Java.png': '/Java.png',
-  'Tailwind CSS.png': '/Tailwind CSS.png',
-  'Docker.png': '/Docker.png',
+  'React.png': reactIcon,
+  'Vue.js.png': vueIcon,
+  'Svelte.png': svelteIcon,
+  'Next.js.png': nextIcon,
+  'Node.js.png': nodeIcon,
+  'Express.png': expressIcon,
+  'Django.png': djangoIcon,
+  'Spring.png': springIcon,
+  'PostgresSQL.png': postgresIcon,
+  'Redis.png': redisIcon,
+  'JavaScript.png': javascriptIcon,
+  'TypeScript.png': typescriptIcon,
+  'Java.png': javaIcon,
+  'Tailwind CSS.png': tailwindIcon,
+  'Docker.png': dockerIcon,
 }
 
 const CATEGORY_STYLES = {
@@ -44,7 +65,7 @@ const NAV_LINKS = ['Home', 'Technologies', 'Projects', 'About', 'Contact']
 function BrandMark() {
   return (
     <a href="#top" className="flex items-center gap-2 shrink-0">
-      <img src="/logo-text.png" alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
+      <img src={logo} alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
       <span className="text-lg font-extrabold text-gradient-brand">Dev Stack</span>
     </a>
   )
@@ -141,7 +162,7 @@ function Hero() {
             <a href="#about" className="btn-outline">Learn More</a>
           </div>
         </div>
-        <img src="/banner-stack.png" alt="Illustration of stacked technology blocks" className="mx-auto w-full max-w-sm lg:mx-0" />
+        <img src={banner} alt="Illustration of stacked technology blocks" className="mx-auto w-full max-w-sm lg:mx-0" />
       </div>
     </section>
   )
@@ -285,7 +306,7 @@ function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <a href="#top" className="flex items-center gap-2">
-              <img src="/logo-text.png" alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
+              <img src={logo} alt="Dev Stack logo" className="h-8 w-8 rounded-lg" />
               <span className="text-lg font-extrabold text-gradient-brand">Dev Stack</span>
             </a>
             <p className="mt-3 max-w-xs text-sm text-muted">
