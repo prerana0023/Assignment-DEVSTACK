@@ -170,7 +170,7 @@ function Hero() {
     <section id="home" className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
       <div className="grid items-center gap-10 lg:grid-cols-2">
         <div>
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl">
             Build Your Ideal
             <br />
             <span className="text-gradient-brand">Development Stack</span>
@@ -226,13 +226,13 @@ function TechnologyCard({ tech, isAdded, onAdd }) {
   const { name, category, description, icon, rating, difficulty, badge } = tech
 
   const cardStyle = isAdded
-  ? 'border-pink-500 bg-pink-50 shadow-lg shadow-pink-200'
-  : 'border-line bg-surface shadow-card hover:shadow-xl hover:-translate-y-1 hover:border-pink-300'
+    ? 'border-pink-500 bg-pink-50 shadow-lg shadow-pink-200'
+    : 'border-line bg-surface shadow-card hover:shadow-xl hover:-translate-y-1 hover:border-pink-300'
 
   return (
-    <article className={`flex flex-col rounded-2xl border p-5 transition-all duration-300 ${cardStyle}`}>
+    <article className={`group flex flex-col rounded-2xl border p-5 transition-all duration-300 ${cardStyle}`}>
       <div className="flex items-start justify-between">
-        <img src={ICONS[icon]} alt="" aria-hidden="true" className="h-10 w-10 rounded-lg object-contain" />
+        <img src={ICONS[icon]} alt="" aria-hidden="true" className="h-10 w-10 rounded-lg object-contain transition-transform duration-300 group-hover:scale-110" />
         {badge && (
           <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${isAdded ? 'bg-pink-100 text-pink-700' : 'bg-ink/5 text-ink/70'}`}>
             {badge}
@@ -433,6 +433,50 @@ function Footer() {
 }
 
 /* ===================================================================
+   Scroll to Top Button
+=================================================================== */
+function ScrollToTop() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setVisible(true)
+      } else {
+        setVisible(false)
+      }
+    }
+
+    window.addEventListener('scroll', toggleVisibility)
+    return () => window.removeEventListener('scroll', toggleVisibility)
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
+  return (
+    <>
+      {visible && (
+        <button
+          type="button"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          className="fixed bottom-6 right-6 z-50 grid h-11 w-11 place-items-center rounded-full bg-gray-900 text-white shadow-lg transition-all duration-300 hover:bg-pink-500 hover:scale-110"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M12 19V5M5 12l7-7 7 7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      )}
+    </>
+  )
+}
+
+/* ===================================================================
    App — owns the stack state and the toast notifications
 =================================================================== */
 export default function App() {
@@ -476,13 +520,14 @@ export default function App() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_300px]">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_300px]">
           <TechnologyGrid stackIds={stackIds} onAdd={handleAdd} />
           <YourStack stack={stack} onRemove={handleRemove} onRemoveAll={handleRemoveAll} />
         </div>
       </section>
 
       <Footer />
+      <ScrollToTop />
 
       <ToastContainer position="bottom-right" autoClose={2500} newestOnTop theme="light" />
     </div>
